@@ -51,29 +51,52 @@ export default function LuxeStay() {
         </button>
       </nav>
 
-      {/* 2. Premier Search Bar (Floating) */}
-      <section className="px-6 md:px-12 py-8 max-w-6xl mx-auto">
-        <div className="bg-white border border-zinc-100 p-2 rounded-full shadow-2xl flex flex-wrap md:flex-nowrap items-center gap-4">
-          <div className="flex-1 flex items-center gap-3 px-6 py-2 border-r border-zinc-100">
-            <MapPin size={18} className="text-[#c5a059]" />
-            <div className="flex flex-col">
-              <span className="text-[9px] uppercase font-bold text-zinc-400">Destination</span>
-              <input type="text" placeholder="Where to go?" className="text-sm font-medium outline-none" />
-            </div>
-          </div>
-          <div className="hidden md:flex flex-1 items-center gap-3 px-6 py-2 border-r border-zinc-100">
-            <Calendar size={18} className="text-[#c5a059]" />
-            <div className="flex flex-col">
-              <span className="text-[9px] uppercase font-bold text-zinc-400">Check-In</span>
-              <span className="text-sm font-medium">Add dates</span>
-            </div>
-          </div>
-          <button className="w-12 h-12 md:w-auto md:px-8 bg-black text-white rounded-full flex items-center justify-center gap-2 hover:bg-[#c5a059] transition-colors">
-            <Search size={18} />
-            <span className="hidden md:block text-[11px] uppercase font-bold">Search</span>
-          </button>
-        </div>
-      </section>
+      {/* 2. Refined Premier Search Bar (Floating Pill Design) */}
+<section className="px-6 md:px-12 -mt-8 relative z-20 max-w-5xl mx-auto">
+  <div className="bg-white/70 backdrop-blur-2xl border border-white/50 p-2 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] flex items-center">
+    
+    {/* Destination Section */}
+    <div className="flex-[1.5] flex items-center gap-4 px-8 py-3 group cursor-pointer hover:bg-zinc-50/50 rounded-full transition-all">
+      <div className="p-2.5 bg-[#c5a059]/10 rounded-full text-[#c5a059]">
+        <MapPin size={20} />
+      </div>
+      <div className="flex flex-col">
+        <span className="text-[10px] uppercase font-black tracking-widest text-[#c5a059]">Location</span>
+        <input 
+          type="text" 
+          placeholder="Where are you going?" 
+          className="text-sm font-semibold bg-transparent border-none outline-none placeholder:text-zinc-400 w-full" 
+        />
+      </div>
+    </div>
+
+    {/* Vertical Divider */}
+    <div className="hidden md:block h-10 w-px bg-zinc-200/60" />
+
+    {/* Check-In Section */}
+    <div className="hidden md:flex flex-1 items-center gap-4 px-8 py-3 group cursor-pointer hover:bg-zinc-50/50 rounded-full transition-all">
+      <div className="p-2.5 bg-zinc-100 rounded-full text-zinc-500 group-hover:bg-[#c5a059]/10 group-hover:text-[#c5a059] transition-all">
+        <Calendar size={20} />
+      </div>
+      <div className="flex flex-col">
+        <span className="text-[10px] uppercase font-black tracking-widest text-zinc-400 group-hover:text-[#c5a059] transition-all">Dates</span>
+        <span className="text-sm font-semibold text-zinc-800">Add Schedule</span>
+      </div>
+    </div>
+
+    {/* Search Button */}
+    <motion.button 
+      whileHover={{ scale: 1.02 }}
+      whileTap={{ scale: 0.98 }}
+      className="ml-2 h-14 w-14 md:w-auto md:px-10 bg-[#1a1a1a] text-white rounded-full flex items-center justify-center gap-3 shadow-xl hover:shadow-[#c5a059]/20 transition-all overflow-hidden relative group"
+    >
+      <div className="absolute inset-0 bg-[#c5a059] translate-y-full group-hover:translate-y-0 transition-transform duration-300" />
+      <Search size={20} className="relative z-10" />
+      <span className="hidden md:block text-[11px] uppercase font-black tracking-widest relative z-10">Find Stay</span>
+    </motion.button>
+    
+  </div>
+</section>
 
       {/* 3. Categories (Mobile Scrollable) */}
       <div className="px-6 md:px-12 flex gap-8 overflow-x-auto no-scrollbar py-4 border-b border-zinc-100 scroll-smooth">
